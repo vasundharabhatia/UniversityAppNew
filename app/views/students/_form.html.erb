@@ -1,0 +1,101 @@
+<%= form_for(@student) do |f| %>
+  <% if @student.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@student.errors.count, "error") %> prohibited this student from being saved:</h2>
+
+      <ul>
+      <% @student.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :Name %><br>
+    <%= f.text_field :Name %>
+  </div>
+  <div class="field">
+    <%= f.label :Age %><br>
+    <%= f.text_field :Age %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :DOB %><br>
+    <%= f.date_select :DOB, :start_year => 1900%>
+  </div>
+
+  <div class="field">
+    <%= f.label :Score %><br>
+    <%= f.text_field :Score %>
+  </div>
+  <div class="field">
+    <%= f.label :School %><br>
+    <%= f.text_field :School %>
+  </div>
+  <div class="field">
+    <%= f.label :Level %><br>
+    <%= f.collection_radio_buttons(
+    :Level, [['11th', '11th'], ['12th', '12th'], ['JC1', 'JC1']], :first, :last)%>
+  </div>
+  <div class="field">
+    <%= f.label :Sex %><br>
+    <%= f.collection_radio_buttons(
+    :Sex, [['Male', 'Male'], ['Female', 'Female']], :first, :last)%>
+  </div>
+  <%= f.label :"Select Colleges to Apply:" %><br>
+  <div class="field">
+  <div class="border" style="OVERFLOW-Y:scroll; WIDTH:500px; HEIGHT:300px">
+    <%= hidden_field_tag "student[college_ids][]", nil %>
+    <% College.all.each do |college| %>
+      <%= check_box_tag "student[college_ids][]", college.id, @student.college_ids.include?(college.id) %>
+      <%= college.Name %> <br>
+    <% end %>
+    </div>
+  </div>
+
+  <div class="field" id="choose_mentors">
+    <div class="border">
+    <%= f.label :"Choose Mentor:" %><br>
+    <%= f.collection_select :mentor_id, Mentor.all, :id, :Name %><br>
+    <%= link_to 'Create a new mentor', 'javascript:void(0)',:onclick => 'add_new_mentor()' %>
+    </div>     
+  </div>
+
+  <div id ="new_fields_container" class="hidden">
+    <div class="border">
+    <%= f.fields_for :mentor do |mf| %>
+      <div class="field">
+        <%= mf.label :"Mentor Name" %><br>
+        <%= mf.text_field :Name %>
+        <%= mf.hidden_field :reject_mentor, :value =>'1' %>
+      </div>
+      <div class="field">
+        <%= mf.label :"Mentor Age" %><br>
+        <%= mf.text_field :Age%>
+      </div>
+      <div class="field">
+        <%= mf.label :"Mentor DOB" %><br>
+        <%= mf.date_select :DOB, :start_year => 1900 %>
+      </div>
+      <div class="field">
+        <%= mf.label :"Mentor Sex" %><br>
+        <%= mf.collection_radio_buttons(
+        :Sex, [['Male', 'Male'], ['Female', 'Female']], :first, :last)%>
+      </div>
+      <div class="field">
+        <%= mf.label :"Mentor Bio" %><br>
+        <%= mf.text_area :Bio %>
+      </div>
+      <div class="field">
+        <%= mf.label :"Mentor Image" %><br>
+        <%= mf.file_field :avatar %>
+      </div>
+    <% end %>
+    <%= link_to 'Choose from already created mentors', 'javascript:void(0)', :onclick => 'show_dropdown()' %> 
+    </div>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

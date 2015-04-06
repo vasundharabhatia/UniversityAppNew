@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Name: MyString
+  Age: 9.99
+  DOB: 2015-03-20
+  Score: 9.99
+  School: MyString
+  Level: MyString
+  Sex: MyString
+
+two:
+  Name: MyString
+  Age: 9.99
+  DOB: 2015-03-20
+  Score: 9.99
+  School: MyString
+  Level: MyString
+  Sex: MyString

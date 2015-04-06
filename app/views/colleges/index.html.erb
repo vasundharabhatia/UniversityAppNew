@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+<h4>Listing Colleges</h4>
+
+<strong>Filter by Country:</strong><% College.all.collect(&:Country).uniq.each do |cn| %>
+  <%= link_to cn, colleges_path(:search => cn) %>
+<% end %>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Country</th>
+      <th>Satminscore</th>
+      <th>Satmaxscore</th>
+      <th>Tuitionfees</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @colleges.each do |college| %>
+      <tr>
+        <td><%= college.Name %></td>
+        <td><%= college.Country %></td>
+        <td><%= college.SATMinScore %></td>
+        <td><%= college.SATMaxScore %></td>
+        <td><%= college.TuitionFees %></td>
+        <td><%= link_to 'Show', college, class: 'btn btn-primary btn-xs' %></td>
+        <td><%= link_to 'Edit', edit_college_path(college), class: 'btn btn-primary btn-xs' %></td>
+        <td><%= link_to 'Destroy', college, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary btn-xs' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New College', new_college_path, class: 'btn btn-success' %>

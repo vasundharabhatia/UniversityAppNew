@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>UniversityApp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div id="main-container" class="container">
+      <div class="row">
+        <div class="col-xs-3">
+          <h3>Student Management Portal</h3>
+          <table class="table">
+          	<tr>
+          		<td><%= link_to 'Manage Colleges', colleges_path, class: 'btn btn-primary btn-xs' %></td>
+          	</tr>
+          	<tr>
+          		<td><%= link_to 'Manage Students', students_path, class: 'btn btn-primary btn-xs' %></td>
+          	</tr>
+          	<tr>
+          		<td><%= link_to 'Manage Mentors', mentors_path, class: 'btn btn-primary btn-xs' %></td>
+          	</tr>
+          </table>
+        </div>
+
+        <div class="col-xs-9">
+<%= yield %>
+</div>
+      </div>
+    </div>
+</body>
+</html>

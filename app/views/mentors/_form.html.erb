@@ -1,0 +1,44 @@
+<%= form_for(@mentor, :html => { :multipart => true }) do |f| %>
+  <% if @mentor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@mentor.errors.count, "error") %> prohibited this mentor from being saved:</h2>
+
+      <ul>
+      <% @mentor.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<form role="form">
+  <div class="form-group">
+  <div class="field">
+    <%= f.label :Name %><br>
+    <%= f.text_field :Name %>
+  </div>
+  <div class="field">
+    <%= f.label :Age %><br>
+    <%= f.text_field :Age %>
+  </div>
+  <div class="field">
+    <%= f.label :DOB %><br>
+    <%= f.date_select :DOB, :start_year => 1900 %>
+  </div>
+  <div class="field">
+    <%= f.label :Sex %><br>
+    <%= f.collection_radio_buttons(
+    :Sex, [['Male', 'Male'], ['Female', 'Female']], :first, :last)%>
+  </div>
+  <div class="field">
+    <%= f.label :Bio %><br>
+    <%= f.text_area :Bio %>
+  </div>
+  <div class="field">
+    <%= f.label :Image %><br>
+    <%= f.file_field :avatar %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  </form>
+<% end %>

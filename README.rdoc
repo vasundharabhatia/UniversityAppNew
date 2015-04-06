@@ -1,0 +1,32 @@
+== README
+
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+Things you may want to cover:
+
+* Ruby version:  2.2.1
+* Rails version: 4.2.0
+
+* System dependencies: gems used
+gem 'sqlite3'
+gem "paperclip", "~> 4.2"
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'autoprefixer-rails'
+
+* Configuration: Used paperclip for image upload. Add above gems to Gemfile if not present and do a bundle install through command line
+
+* Database creation: creted each application models controllers and views using scaffold. It automatically creates migration.
+Apply the migration using: "rake db:migrate" command
+
+* Database initialization: can do a "rake db:rollback" to generate new data. But data already present in sqllite.
+
+* How to run the test suite: no test cases created
+
+* Services (job queues, cache servers, search engines, etc.): N/A
+
+* ...
+
+
+Please feel free to use a different markup language if you do not plan to run
+<tt>rake doc:app</tt>.

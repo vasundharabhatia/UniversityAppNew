@@ -1,0 +1,51 @@
+<body>
+<p id="notice"><%= notice %></p>
+
+<h4>College Details:</h4>
+<p>
+  <strong>Name:</strong>
+  <%= @college.Name %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @college.Country %>
+</p>
+
+<p>
+  <strong>Satminscore:</strong>
+  <%= @college.SATMinScore %>
+</p>
+
+<p>
+  <strong>Satmaxscore:</strong>
+  <%= @college.SATMaxScore %>
+</p>
+
+<p>
+  <strong>Tuitionfees:</strong>
+  <%= @college.TuitionFees %>
+</p>
+<p>
+<b>Students Applications:</b>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Student Name</th>
+      <th>Score</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @college.students.each do |student| %>
+      <tr>
+        <td><%= student.Name %></td>
+        <td><%= student.Score %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</p>
+</body>
+<%= link_to 'Edit', edit_college_path(@college), class: 'btn btn-primary btn-xs' %> |
+<%= link_to 'Back', colleges_path, class: 'btn btn-primary btn-xs' %>

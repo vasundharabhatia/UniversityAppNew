@@ -1,0 +1,32 @@
+<body>
+<p id="notice"><%= notice %></p>
+<h4>Mentor Details:</h4>
+<p>
+  <strong>Name:</strong>
+  <%= @mentor.Name %>
+</p>
+<p>
+  <strong>Image:</strong>
+<%= image_tag @mentor.avatar.url %>
+</p>
+<p>
+  <strong>Age:</strong>
+  <%= @mentor.Age %>
+</p>
+
+<p>
+  <strong>Dob:</strong>
+  <%= @mentor.DOB %>
+</p>
+
+<p>
+  <strong>Sex:</strong>
+  <%= @mentor.Sex %>
+</p>
+
+<p>
+  <strong>Bio:</strong>
+  <%= @mentor.Bio %>
+</p>
+<%= link_to 'Edit', edit_mentor_path(@mentor), class: 'btn btn-primary btn-xs' %> |
+<%= link_to 'Back', mentors_path, class: 'btn btn-primary btn-xs' %>

@@ -1,0 +1,52 @@
+<body>
+<p id="notice"><%= notice %></p>
+<h4>Student Details:</h4>
+<p>
+  <strong>Name:</strong>
+  <%= @student.Name %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @student.Age %>
+</p>
+
+<p>
+  <strong>Dob:</strong>
+  <%= @student.DOB %>
+</p>
+
+<p>
+  <strong>Score:</strong>
+  <%= @student.Score %>
+</p>
+
+<p>
+  <strong>School:</strong>
+  <%= @student.School %>
+</p>
+
+<p>
+  <strong>Level:</strong>
+  <%= @student.Level %>
+</p>
+
+<p>
+  <strong>Sex:</strong>
+  <%= @student.Sex %>
+</p>
+<p>
+  <strong>Mentor:</strong>
+<%=@student.mentor.Name   if @student.mentor %>
+</p>
+<p>
+<b>Colleges:</b>
+<ul>
+<% @student.colleges.each do |college| %>
+<li><%= college.Name %></li>
+<% end %>
+</ul>
+</p>
+
+<%= link_to 'Edit', edit_student_path(@student), class: 'btn btn-primary btn-xs' %> |
+<%= link_to 'Back', students_path, class: 'btn btn-primary btn-xs' %>

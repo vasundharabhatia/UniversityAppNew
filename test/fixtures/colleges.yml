@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Name: MyString
+  Country: MyString
+  SATMinScore: 9.99
+  SATMaxScore: 9.99
+  TuitionFees: 9.99
+
+two:
+  Name: MyString
+  Country: MyString
+  SATMinScore: 9.99
+  SATMaxScore: 9.99
+  TuitionFees: 9.99
